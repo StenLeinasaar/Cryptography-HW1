@@ -6,8 +6,10 @@ def vigenere_encrypt(text, key):
 
     for i, char in enumerate(text):
         if char.isalpha():
-            shift = ord(key[i % key_length]) - ord("A")
-            encrypted_char = chr(((ord(char) - ord("A") + shift) % 26) + ord("A"))
+            shift = ord(key[i % key_length]) - ord("A")  # shifting
+            encrypted_char = chr(
+                ((ord(char) - ord("A") + shift) % 26) + ord("A")
+            )  # Modulos calculation
             encrypted_text += encrypted_char
         else:
             encrypted_text += char
